@@ -29,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }}
           />
         </div>
+        <div role="note" style={{padding:"8px 16px",textAlign:"center",fontSize:12,background:"#172033",color:"#e2e8f0"}}>Hackathon sandbox · fictional data · local demo responses · do not enter private information</div>
         {children}
       </body>
     </html>

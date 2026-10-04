@@ -121,7 +121,7 @@ export async function POST(req: Request) {  const { agent, messages } = (await r
       } catch (e) {
         // Sin plantillas: si el modelo no responde, decirlo.
         push(
-          `[${def.name} can't reach its model right now. The shared mind is intact — try again in a moment.]`
+          `[Local demo · ${def.name} · no live model call]\nShared memory currently contains:\n${all.slice(0, 3).map(b => "• " + b.content).join("\n")}`
         );
       }
       controller.close();
