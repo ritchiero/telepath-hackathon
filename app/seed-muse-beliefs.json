@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Alex is a fictional hackathon demo participant.",
+    "confidence": 0.9,
+    "source_agent": "muse"
+  },
+  {
+    "content": "Alex prefers concise answers in English.",
+    "confidence": 0.9,
+    "source_agent": "grok"
+  },
+  {
+    "content": "Alex is building a shared memory tool for AI agents.",
+    "confidence": 0.9,
+    "source_agent": "fo"
+  },
+  {
+    "content": "Alex prefers morning meetings.",
+    "confidence": 0.9,
+    "source_agent": "dot"
+  },
+  {
+    "content": "Alex likes vegetarian lunches.",
+    "confidence": 0.9,
+    "source_agent": "muse"
+  },
+  {
+    "content": "Alex uses TypeScript for prototypes.",
+    "confidence": 0.9,
+    "source_agent": "grok"
+  },
+  {
+    "content": "The fictional demo deadline is Friday at 5 PM.",
+    "confidence": 0.9,
+    "source_agent": "fo"
+  },
+  {
+    "content": "Alex wants agents to explain conflicting beliefs.",
+    "confidence": 0.9,
+    "source_agent": "dot"
+  }
+]

@@ -1,0 +1,289 @@
+/* Telepath Console design tokens — scoped to .tp-console */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..800&family=Quattrocento:wght@400;700&display=swap');
+
+/* === colors.css === */
+/* ============================================================
+   Telepath — Color system
+   Dark-first "ink" product UI built on the Diestra palette.
+   Base values first, then semantic --tp-* aliases (dark default).
+   Light theme overrides live in theme-light.css ([data-theme="light"]).
+   Rule: lime is the ONLY energetic color — it means "live":
+   sync, corrections, the one primary CTA, progress.
+   ============================================================ */
+.tp-console {
+  /* ---- Base palette (Diestra) ---- */
+  --azul-profundo: #0B1D3A;
+  --grafito: #0F1115;
+  --blanco: #FFFFFF;
+  --menta-suave: #C8F2E6;
+  --azul-bruma: #D6E6FF;
+  --lila-suave: #CDBCF7;
+  --lima-acento: #D6F56A;
+  --lima-hover: #CBEE52;
+  --lima-suave: #F0FAC9;
+
+  /* ---- Navy ramp ---- */
+  --navy-900: #060F1F;
+  --navy-800: #0B1D3A;
+  --navy-700: #122846;
+  --navy-600: #1C3357;
+  --navy-500: #2A3D63;
+
+  /* ---- Cool neutral ramp ---- */
+  --neutral-0: #FFFFFF;
+  --neutral-50: #F6F8FB;
+  --neutral-100: #EEF2F7;
+  --neutral-200: #E2E8F0;
+  --neutral-300: #D5DDE8;
+  --neutral-400: #B4BFD0;
+  --neutral-500: #8A97AD;
+  --neutral-600: #6B7891;
+  --neutral-700: #4A566E;
+  --neutral-800: #2A3550;
+  --neutral-900: #16213A;
+
+  /* ---- Ink glass layers (white alpha over navy) ---- */
+  --ink-a04: rgba(255,255,255,0.04);
+  --ink-a06: rgba(255,255,255,0.06);
+  --ink-a08: rgba(255,255,255,0.08);
+  --ink-a12: rgba(255,255,255,0.12);
+  --ink-a16: rgba(255,255,255,0.16);
+  --ink-a20: rgba(255,255,255,0.20);
+  --ink-a24: rgba(255,255,255,0.24);
+
+  /* ---- Text on ink (alpha whites; 62% is the floor for small text) ---- */
+  --ink-text-100: #FFFFFF;
+  --ink-text-92: rgba(255,255,255,0.92);
+  --ink-text-86: rgba(255,255,255,0.86);
+  --ink-text-72: rgba(255,255,255,0.72);
+  --ink-text-62: rgba(255,255,255,0.62);
+
+  /* ---- Agents (identity colors; always navy initials on top) ---- */
+  --agent-muse: #CDBCF7;
+  --agent-grok: #D6E6FF;
+  --agent-dot: #C8F2E6;
+  --agent-fo: #F0FAC9;
+  --agent-jev: #D6F56A;
+
+  /* ---- Mind events (pulse dots) ---- */
+  --event-learn: #C8F2E6;
+  --event-correct: #D6F56A;
+  --event-sync: #D6E6FF;
+  --event-recall: #F0FAC9;
+  --event-predict: #CDBCF7;
+  --event-act: #FFFFFF;
+
+  /* ---- Gradients ---- */
+  --gradient-ink: linear-gradient(135deg, #0B1D3A 0%, #122846 60%, #1C3357 100%); /* @kind color */
+  --gradient-marca: linear-gradient(105deg, #C8F2E6 0%, #D6E6FF 36%, #CDBCF7 64%, #D6F56A 100%); /* @kind color */
+  --gradient-soft: linear-gradient(135deg, #E4F8F1 0%, #EBF2FF 50%, #EDE6FC 100%); /* @kind color */
+
+  /* ================= Semantic (dark / ink default) ================= */
+  --tp-page: var(--gradient-ink); /* @kind color */
+  --tp-page-solid: var(--navy-800);
+  --tp-surface-1: var(--ink-a06);       /* panels */
+  --tp-surface-2: var(--ink-a08);       /* raised: agent bubble, active row, hover */
+  --tp-surface-3: var(--ink-a12);       /* tracks, neutral pills */
+  --tp-surface-overlay: rgba(6,15,31,0.92); /* dialog, toast, tooltip, popover */
+  --tp-surface-header: rgba(11,29,58,0.85); /* sticky header, with blur */
+  --tp-border-1: var(--ink-a08);        /* dividers inside panels */
+  --tp-border-2: var(--ink-a12);        /* panel outlines */
+  --tp-border-3: var(--ink-a20);        /* controls, chips */
+  --tp-border-4: var(--ink-a24);        /* active / selected */
+  --tp-text-1: var(--ink-text-100);     /* headings, values */
+  --tp-text-2: var(--ink-text-86);      /* strong secondary */
+  --tp-text-3: var(--ink-text-72);      /* body secondary, eyebrows */
+  --tp-text-4: var(--ink-text-62);      /* meta, timestamps (floor) */
+  --tp-fill-inverse: var(--blanco);     /* user bubble, active tab, primary button */
+  --tp-on-inverse: var(--azul-profundo);
+  --tp-accent: var(--lima-acento);
+  --tp-accent-hover: var(--lima-hover);
+  --tp-on-accent: var(--azul-profundo);
+  --tp-accent-text: var(--lima-acento); /* lime used as text/icon on ink */
+  --tp-accent-border: var(--lima-acento);
+  --tp-accent-wash: rgba(214,245,106,0.06);
+  --tp-positive: #6FD3A1;
+  --tp-positive-bg: rgba(111,211,161,0.14);
+  --tp-negative: #F08A7E;
+  --tp-negative-bg: rgba(240,138,126,0.14);
+  --tp-notice: #F2C66D;
+  --tp-notice-bg: rgba(242,198,109,0.14);
+  --tp-info: var(--azul-bruma);
+  --tp-info-bg: rgba(214,230,255,0.12);
+  --tp-scrim: rgba(4,10,22,0.6);
+  --tp-focus-ring: 0 0 0 3px rgba(205,188,247,0.55);
+  --tp-meter-fill: var(--lima-acento);
+  --tp-input-bg: var(--blanco);
+  --tp-input-text: var(--azul-profundo);
+  --tp-input-border: transparent;
+  --tp-input-border-focus: var(--lila-suave);
+  --tp-input-icon: var(--neutral-600);
+  --tp-switch-on: var(--lima-acento);
+  --tp-switch-knob-on: var(--azul-profundo);
+  --tp-switch-off: var(--ink-a20);
+
+  /* ---- Mind graph ---- */
+  --tp-graph-core: var(--blanco);
+  --tp-graph-glow: var(--lila-suave);
+  --tp-graph-line: rgba(255,255,255,0.22);
+  --tp-graph-link: rgba(255,255,255,0.08);
+  --tp-graph-label: var(--blanco);
+  --tp-graph-halo: var(--navy-800);
+  --tp-graph-field-1: var(--navy-600);
+  --tp-graph-field-2: var(--navy-700);
+  --tp-graph-flow: var(--lima-acento);
+  --tp-graph-ring: var(--blanco);
+}
+
+/* === typography.css === */
+/* Telepath — Typography
+   Quattrocento: display only (titles, pull-quotes, belief headlines, step numerals).
+   Google Sans Flex: all UI. Eyebrows & CTAs uppercase with wide tracking.
+   Numbers that change live (latency, %, counts) are always tabular. */
+.tp-console {
+  --font-display: 'Quattrocento', 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Google Sans Flex', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-display-1: 64px;
+  --fs-display-2: 48px;
+  --fs-display-3: 36px;
+  --fs-h1: 32px;
+  --fs-h2: 24px;
+  --fs-h3: 20px;
+  --fs-h4: 17px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-message: 15px;   /* chat bubbles */
+  --fs-body-sm: 14px;
+  --fs-ui: 13px;        /* chips, tabs, buttons-sm, list meta */
+  --fs-ui-sm: 12.5px;   /* citations, timestamps, captions */
+  --fs-eyebrow: 12px;
+  --fs-micro: 11px;     /* stat labels, pulse kind labels */
+  --fs-stat: 18px;      /* header stat values */
+  --fs-wordmark: 26px;
+  --fs-belief: 22px;    /* inspector headline (display serif) */
+  --fs-step: 22px;      /* step numerals (display serif) */
+
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700; /* @kind font */
+  --fw-black: 800; /* @kind font */
+  --fw-display: 400; /* @kind font */
+
+  --lh-tight: 1.08; /* @kind font */
+  --lh-snug: 1.22; /* @kind font */
+  --lh-heading: 1.3; /* @kind font */
+  --lh-list: 1.45; /* @kind font */
+  --lh-normal: 1.55; /* @kind font */
+  --lh-message: 1.6; /* @kind font */
+  --lh-relaxed: 1.7; /* @kind font */
+
+  --ls-tighter: -0.03em; /* @kind font */
+  --ls-tight: -0.015em; /* @kind font */
+  --ls-normal: 0; /* @kind font */
+  --ls-wide: 0.06em; /* @kind font */
+  --ls-wider: 0.14em; /* @kind font */
+}
+
+/* === spacing.css === */
+/* Telepath — Spacing, radii, elevation, layout. 8-pt rhythm with 4-pt half steps. */
+.tp-console {
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 10px;   /* buttons, inputs, tabs */
+  --radius-row: 12px;  /* list rows, prediction items */
+  --radius-lg: 16px;   /* panels, bubbles, inspector */
+  --radius-xl: 24px;   /* hero panels, dialogs */
+  --radius-full: 999px;
+  --radius-bubble-user: 16px 16px 4px 16px;
+  --radius-bubble-agent: 4px 16px 16px 16px;
+
+  --bw-hair: 1px;
+  --bw-thick: 1.5px;
+
+  /* Elevation: on ink, depth comes from glass layers, not shadows. */
+  --shadow-xs: 0 1px 2px rgba(11,29,58,0.06);
+  --shadow-sm: 0 2px 8px rgba(11,29,58,0.06);
+  --shadow-md: 0 8px 24px rgba(11,29,58,0.08);
+  --shadow-lg: 0 20px 48px rgba(11,29,58,0.12);
+  --shadow-xl: 0 32px 72px rgba(11,29,58,0.16);
+  --shadow-ink: 0 20px 48px rgba(4,10,22,0.45);
+  --tp-shadow-panel: none;
+  --tp-shadow-overlay: var(--shadow-ink);
+
+  --blur-header: 12px;
+
+  /* Layout */
+  --tp-header-h: 64px;
+  --tp-sidebar-w: 280px;
+  --tp-chat-min-w: 460px;
+  --tp-rail-w: 360px;
+  --tp-gutter: 16px;
+  --tp-graph-h: 300px;
+  --tp-control-sm: 32px;
+  --tp-control-md: 44px;
+  --tp-input-h: 46px;
+  --container-max: 1200px;
+
+  /* Stacking */
+  --z-header: 10;
+  --z-popover: 40;
+  --z-toast: 50;
+  --z-dialog: 60;
+  --z-tooltip: 70;
+}
+
+/* === motion.css === */
+/* Telepath — Motion
+   Restrained and quick for UI (130–360ms). The ONE expressive moment is
+   propagation: ripple → flow → flash, staggered per agent.
+   Loops are only allowed for functional waiting states
+   (typing, connecting, loading) — never decorative. */
+.tp-console {
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45); /* @kind other */
+  --dur-instant: 80ms; /* @kind other */
+  --dur-fast: 130ms; /* @kind other */
+  --dur-normal: 220ms; /* @kind other */
+  --dur-slow: 360ms; /* @kind other */
+  --dur-pop: 520ms; /* @kind other */
+  --dur-flash: 900ms; /* @kind other */
+  --dur-typing: 1100ms; /* @kind other */
+  --dur-flow: 1300ms; /* @kind other */
+  --dur-ripple: 1600ms; /* @kind other */
+  --dur-sync-window: 2600ms; /* @kind other */
+  --stagger: 120ms; /* @kind other */
+}
+/* Propagation */
+@keyframes tp-ripple { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(11); opacity: 0; } }
+@keyframes tp-flow { 0% { stroke-dashoffset: 1; opacity: 1; } 65% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes tp-flash { 0% { transform: scale(1); opacity: 0; } 12% { opacity: .9; } 100% { transform: scale(1.8); opacity: 0; } }
+@keyframes tp-pop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+/* UI enter / exit */
+@keyframes tp-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tp-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes tp-sink { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(6px); } }
+@keyframes tp-scale-in { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+/* Functional loops */
+@keyframes tp-blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+@keyframes tp-live { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+@keyframes tp-spin { to { transform: rotate(360deg); } }
+@keyframes tp-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+

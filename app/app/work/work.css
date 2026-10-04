@@ -1,0 +1,438 @@
+/* Telepath /work — inline correction work page (dark ink).
+   Uses the --tp-* / navy tokens from ../console/tokens.css (scoped .tp-console). */
+
+.tp-work {
+  min-height: 100vh;
+  background: var(--navy-900);
+  color: var(--ink-text-100);
+  padding: 20px 24px 32px;
+  font-family: var(--tp-font-ui, -apple-system, BlinkMacSystemFont, sans-serif);
+}
+
+/* ---- JEV bar ---- */
+.tw-jev {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: var(--navy-800);
+  border: 1px solid var(--navy-600);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.tw-jev-logo {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.tw-jev-input {
+  flex: 1;
+  background: var(--navy-900);
+  border: 1px solid var(--navy-600);
+  border-radius: 24px;
+  padding: 12px 20px;
+  color: var(--ink-text-100);
+  font-size: 14px;
+  outline: none;
+}
+.tw-jev-input::placeholder {
+  color: var(--ink-text-62);
+}
+.tw-jev-input:focus {
+  border-color: var(--lima-acento);
+}
+.tw-jev-answer {
+  background: var(--navy-800);
+  border: 1px solid var(--lima-acento);
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--ink-text-92);
+}
+
+/* ---- buttons ---- */
+.tw-btn-lima {
+  background: var(--lima-acento);
+  color: #111;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 28px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tw-btn-lima:hover:not(:disabled) {
+  background: var(--lima-hover);
+}
+.tw-btn-lima:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.tw-btn-sm {
+  padding: 8px 20px;
+  font-size: 12px;
+}
+.tw-btn-ghost {
+  background: transparent;
+  border: 1px solid var(--navy-500);
+  color: var(--ink-text-72);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.tw-btn-ghost:hover:not(:disabled) {
+  border-color: var(--ink-text-62);
+  color: var(--ink-text-100);
+}
+.tw-btn-correct {
+  background: transparent;
+  border: 1px solid var(--lima-acento);
+  color: var(--lima-acento);
+  border-radius: 14px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tw-btn-correct:hover {
+  background: rgba(214, 245, 106, 0.1);
+}
+
+/* ---- Engine strip ---- */
+.tw-engine {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--navy-800);
+  border: 1px solid var(--navy-600);
+  border-radius: 14px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+}
+.tw-engine-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--lima-acento);
+  font-weight: 800;
+  white-space: nowrap;
+}
+.tw-flow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.tw-fnode {
+  background: var(--navy-600);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-text-100);
+}
+.tw-farrow {
+  color: var(--ink-text-62);
+  font-size: 20px;
+}
+.tw-latency {
+  color: var(--ink-text-62);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---- pulsing live dot ---- */
+.tw-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lima-acento);
+  animation: tw-pulse 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes tw-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--lima-acento);
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: none;
+  }
+}
+
+/* ---- three columns ---- */
+.tw-cols {
+  display: grid;
+  grid-template-columns: 250px 1fr 340px;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 1100px) {
+  .tw-cols {
+    grid-template-columns: 1fr;
+  }
+}
+.tw-panel {
+  background: var(--navy-800);
+  border: 1px solid var(--navy-700);
+  border-radius: 14px;
+  padding: 20px;
+}
+.tw-panel h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--ink-text-62);
+  margin-bottom: 16px;
+}
+.tw-arow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--navy-700);
+  font-size: 14px;
+}
+.tw-arow:last-of-type {
+  border-bottom: none;
+}
+.tw-agent-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 8px 0 4px;
+  vertical-align: baseline;
+}
+.tw-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-text-72);
+}
+.tw-note {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--ink-text-62);
+  line-height: 1.5;
+}
+
+/* ---- mind ---- */
+.tw-mind {
+  text-align: center;
+}
+.tw-mind-num {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  font-variant-numeric: tabular-nums;
+}
+.tw-viz {
+  width: 100%;
+  margin: 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.tw-viz-large {
+  max-width: 560px;
+}
+.tw-viz-large svg {
+  max-height: 520px !important;
+}
+.tw-expand-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 11px;
+  color: var(--ink-text-62);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.tw-viz-large:hover .tw-expand-hint {
+  opacity: 1;
+}
+.tw-viz-legend {
+  font-size: 11px;
+  color: var(--ink-text-62);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Hero */
+.tw-hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #0B1D3A 0%, #060F1F 60%, #0B1D3A 100%);
+  border: 1px solid #1C3357;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+.tw-demo-badge {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: #D6F56A;
+  color: #111;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.tw-hero-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 24px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 32px rgba(214, 245, 106, 0.15);
+}
+.tw-hero-text h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin: 0 0 8px 0;
+  color: #fff;
+  background: linear-gradient(135deg, #fff 0%, #D6F56A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tw-hero-tagline {
+  font-size: 18px;
+  font-weight: 600;
+  color: #D6E6FF;
+  margin: 0 0 12px 0;
+}
+.tw-hero-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #8A97AD;
+  margin: 0 0 16px 0;
+  max-width: 520px;
+}
+.tw-hero-stats {
+  display: flex;
+  gap: 24px;
+}
+.tw-hero-stats span {
+  font-size: 13px;
+  color: #8A97AD;
+}
+.tw-hero-stats b {
+  font-size: 20px;
+  color: #D6F56A;
+  margin-right: 6px;
+}
+.tw-stable {
+  color: var(--lima-acento);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ---- beliefs ---- */
+.tw-beliefs {
+  max-height: 70vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+.tw-empty {
+  color: var(--ink-text-62);
+  font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
+}
+.tw-belief {
+  background: var(--navy-700);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  transition: border-color 0.3s;
+  border: 1px solid transparent;
+}
+.tw-belief.tw-propagated {
+  border-color: var(--lima-acento);
+}
+.tw-belief-text {
+  color: var(--ink-text-92);
+}
+.tw-belief-meta {
+  font-size: 11px;
+  color: var(--ink-text-62);
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.tw-agent-chip {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: baseline;
+}
+.tw-corr {
+  color: var(--lima-acento);
+}
+.tw-propagated-msg {
+  margin-top: 10px;
+  color: var(--lima-acento);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---- inline edit ---- */
+.tw-edit-input {
+  width: 100%;
+  background: var(--navy-900);
+  border: 1px solid var(--lima-acento);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--ink-text-100);
+  font-size: 13px;
+  outline: none;
+  margin-bottom: 10px;
+}
+.tw-edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ---- footer ---- */
+.tw-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-text-62);
+}
